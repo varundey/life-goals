@@ -1,0 +1,30 @@
+{% extends 'application.html' %}
+{% block content %}
+<h2>Life Goals</h2>
+<a href="{% url 'add_new' %}" class="top-menu">
+  <span class="glyphicon glyphicon-plus"></span>
+  Add new
+</a>
+
+{% for i in events %}
+<p>{{ i.title }} - {{ i.end_date }}
+  {% if i.done == True %}
+  <span class="glyphicon glyphicon-ok-circle"></span>
+  {% endif %}
+  {% if i.done == False %}
+  <span class="glyphicon glyphicon-minus"></span>
+  {% endif %}
+<a class="btn btn-default" href="{% url 'goal_edit' pk=i.pk %}">
+  <span class="glyphicon glyphicon-pencil"></span></a>
+
+<a class="btn btn-danger" href="{% url 'goal_delete' pk=i.pk %}">
+  <span class="glyphicon glyphicon-trash"></span></a>
+</p>
+<p>
+  {{ i.description }}
+</p>
+<hr>
+{% endfor %}
+
+
+{% endblock %}
