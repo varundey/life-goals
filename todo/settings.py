@@ -78,9 +78,21 @@ WSGI_APPLICATION = 'todo.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dbkp72oaucv56u',
+        #'NAME': 'itlo',
+        'USER': 'zeicordbnssoyp',
+        #'USER': 'varun',
+        'PASSWORD': 'vviEVOs_KnhcIAtFZ7pPiI8reA',
+        #'PASSWORD': '123',
+        'HOST': 'ec2-54-163-230-90.compute-1.amazonaws.com',
+        #'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
