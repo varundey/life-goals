@@ -1,8 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from django.core.serializers import serialize
-from django.views.generic.edit import DeleteView
-from django.core.urlresolvers import reverse_lazy
 from .models import Event
 from .forms import EventForm
 import json
