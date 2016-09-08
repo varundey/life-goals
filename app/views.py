@@ -5,6 +5,7 @@ from django.views.generic.edit import DeleteView
 from django.core.urlresolvers import reverse_lazy
 from .models import Event
 from .forms import EventForm
+import json
 
 def index(request):
     events = Event.objects.all()
@@ -12,7 +13,8 @@ def index(request):
 
 def goals(request):
     events = Event.objects.all()
-    return HttpResponse(serialize("json", events))
+    events=[ob.events_json() for ob in events]
+    return HttpResponse(json.dumps(events), content_type="application/json")
 
 def add(request):
     if request.method == "POST":

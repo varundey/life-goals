@@ -1,25 +1,41 @@
 {% extends 'application.html' %}
+{% load app_extras %}
 {% block content %}
-<h2>Life Goals</h2>
+<h1>Life Goals</h1>
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="{{ events|count_done }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ events|count_done }}%;">
+    {{ events|count_done }}% Complete
+  </div>
+</div>
 <a href="{% url 'add_new' %}" class="top-menu">
   <span class="glyphicon glyphicon-plus"></span>
   Add new
 </a>
 
 {% for i in events %}
-<p>{{ i.title }} - {{ i.end_date }}
+<h3>{{ i.title }}</h3>
+<div class="row">
+  <div class="col-md-9">
+ {{ i.end_date }}
+ </div>
   {% if i.done == True %}
-  <span class="glyphicon glyphicon-ok-circle"></span>
+  <div class="col-md-1"><span class="glyphicon glyphicon-ok-circle"></span></div>
   {% endif %}
   {% if i.done == False %}
-  <span class="glyphicon glyphicon-minus"></span>
+  <div class="col-md-1">
+    <span class="glyphicon glyphicon-minus"></span>
+  </div>
   {% endif %}
-<a class="btn btn-default" href="{% url 'goal_edit' pk=i.pk %}">
-  <span class="glyphicon glyphicon-pencil"></span></a>
+  <div class="col-md-1">
+    <a class="btn btn-default" href="{% url 'goal_edit' pk=i.pk %}">
+      <span class="glyphicon glyphicon-pencil"></span></a>
+  </div>
 
-<a class="btn btn-danger" href="{% url 'goal_delete' pk=i.pk %}">
-  <span class="glyphicon glyphicon-trash"></span></a>
-</p>
+  <div class="col-md-1">
+    <a class="btn btn-danger" href="{% url 'goal_delete' pk=i.pk %}">
+      <span class="glyphicon glyphicon-trash"></span></a>
+  </div>
+
 <p>
   {{ i.description }}
 </p>
