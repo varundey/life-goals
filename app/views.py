@@ -11,7 +11,9 @@ def index(request):
 def goals(request):
     events = Event.objects.all()
     events=[ob.events_json() for ob in events]
-    return HttpResponse(json.dumps(events), content_type="application/json")
+    goals={}
+    goals['goals']=events
+    return HttpResponse(json.dumps(goals), content_type="application/json")
 
 def add(request):
     if request.method == "POST":

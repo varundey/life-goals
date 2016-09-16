@@ -87,11 +87,14 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': 'lifegoals',
         'NAME': 'dc5u5m33q4v560',
-        'USER': 'jykoecqpgrstbs',
-        'PASSWORD': 'Yz43dQghgWJJ9rGHHsa0k0h8Eo',
+        # 'USER': 'varun',
+        'USER': 'ttgjkxszvnrnrp',
+        # 'PASSWORD': '123',
+        'PASSWORD': 'RQvx8UeDqMMB4Xv-5D6-ZQDD47',
         'HOST': 'ec2-23-23-192-249.compute-1.amazonaws.com',
-        # 'HOST': 'localhost',
+        #  'HOST': 'localhost',
         'PORT': '5432',
     }
 }
